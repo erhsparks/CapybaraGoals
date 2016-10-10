@@ -1,0 +1,11 @@
+<% if logged_in? %>
+<p>
+  you are logged in.
+
+  <%= button_to "my home", user_url(current_user), method: :get %>
+  <%= button_to "log out", session_url, method: :delete %>
+</p>
+<% else %>
+  <%= button_to "log in", new_session_url, method: :get %>
+  <%= button_to "sign up", new_user_url, method: :get %>
+<% end %>
