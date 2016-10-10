@@ -1,0 +1,31 @@
+<h1>Create your Account:</h1>
+
+<form action="<%= users_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <label for="username">Username:</label>
+  <input id="username"
+         type="text"
+         name="user[username]"
+         >
+
+  <label for="password">Password:</label>
+  <input id="password"
+         type="password"
+         name="user[password]"
+         >
+
+  <input type="submit"
+         name="Sign Up!"
+         value="Sign Up!">
+</form>
+
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
