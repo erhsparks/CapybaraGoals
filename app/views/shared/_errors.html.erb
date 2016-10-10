@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+
+<font color="red">
+
+  <p>
+    Error!
+  </p>
+
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+
+</font>
+
+<% end %>

@@ -1,1 +1,7 @@
 <h1>Welcome, <%= @user.username %>!</h1>
+
+<% if logged_in? %>
+<p>
+  you are logged in.
+</p>
+<% end %>

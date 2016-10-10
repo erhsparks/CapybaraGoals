@@ -6,7 +6,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #new" do
     it "renders the new user page" do
-      get :new, user: { }
+      get :new
 
       expect(response).to render_template("new")
       expect(response).to have_http_status(200)
@@ -26,7 +26,7 @@ RSpec.describe UsersController, type: :controller do
       it "validates presence of username and password" do
         post :create, user: { username: "", password: "" }
 
-        expect(response).to render_template("new")
+        expect(response).to redirect_to(new_user_url)
         expect(flash[:errors]).to be_present
       end
     end

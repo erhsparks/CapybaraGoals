@@ -1,6 +1,6 @@
-<h1>Create your Account:</h1>
+<h1>Log in:</h1>
 
-<form action="<%= users_url %>" method="post">
+<form action="<%= session_url %>" method="post">
   <input type="hidden"
          name="authenticity_token"
          value="<%= form_authenticity_token %>">
@@ -18,8 +18,8 @@
          >
 
   <input type="submit"
-         name="Sign Up!"
-         value="Sign Up!">
+         name="Sign In!"
+         value="Sign In!">
 </form>
 
 <%= render "shared/errors" %>
