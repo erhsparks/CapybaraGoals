@@ -27,6 +27,10 @@ feature "the signup process" do
     scenario "shows username on the homepage after signup" do
       expect(page).to have_content username
     end
+
+    scenario "logs user in after sign up" do
+      expect(page).to have_button "log out"
+    end
   end
 end
 
@@ -55,14 +59,14 @@ end
 
 
 feature "logging out" do
-  let(:username) { "Capybara" }
-  let(:password) { "CapybarasRule" }
-
   scenario "begins with a logged out state" do
     visit root_url
 
-    expect(page).to_not have_content(username)
+    expect(page).to have_button("log in")
   end
+
+  let(:username) { "Capybara" }
+  let(:password) { "CapybarasRule" }
 
   scenario "doesn't show username on the homepage after logout" do
     visit root_url
@@ -71,7 +75,8 @@ feature "logging out" do
     fill_in "username", with: username
     fill_in "password", with: password
     click_on "Sign Up!"
-    click_on "sign out"
+    
+    click_on "log out"
 
     expect(page).to_not have_content(username)
   end
